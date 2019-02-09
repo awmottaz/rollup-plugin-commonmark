@@ -1,28 +1,35 @@
+# rollup-plugin-commonmark
+
 ## Install
 
 ```node
-npm install rollup-plugin-md --save
+npm install rollup-plugin-commonmark --save-dev
 ```
 
-## usage
+## Usage
 
 ```js
-import md from './test.md';
-console.log( `Template for render: ${md}` );
-```
+// main.js
+import htmlContent from './article.md'
+document.getElementById('my-article').innerHTML = htmlContent
 
-```js
-import { rollup } from 'rollup';
-import md from 'rollup-plugin-md';
+// rollup.config.js
+import commonmark from 'rollup-plugin-commonmark'
 
-rollup({
-    entry: 'main.js',
+export default {
+    input: 'main.js',
+    output: {
+        format: 'iife',
+        file: 'bundle.js'
+    },
     plugins: [
-        md({
-            marked: {
-                //marked options
-            }
+        commonmark({
+            //`include` and `exclude` can each be a minimatch
+            // pattern, or an array of minimatch patterns,
+            // relative to process.cwd()
+            include: undefined,
+            exclude: undefined
         })
     ]
-});
+}
 ```

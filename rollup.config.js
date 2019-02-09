@@ -1,21 +1,19 @@
-import buble from 'rollup-plugin-buble';
-
-var pkg = require('./package.json')
-var external = Object.keys( pkg.dependencies );
+import pkg from './package.json'
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
+import json from 'rollup-plugin-json'
+import builtins from 'rollup-plugin-node-builtins'
 
 export default {
-    entry: 'src/index.js',
-    plugins: [ buble({ sourceMap: true }) ],
-    targets: [
-        {
-            format: 'cjs',
-            dest: pkg['main']
-        },
-        {
-            format: 'es',
-            dest: pkg['jsnext:main']
-        }
-    ],
-    external: external,
-    sourceMap: true
-};
+  input: pkg.module,
+  output: {
+    format: 'cjs',
+    file: pkg.main
+  },
+  plugins: [
+    resolve(),
+    commonjs(),
+    json(),
+    builtins()
+  ]
+}

@@ -1,34 +1,32 @@
 {
-  "name": "rollup-plugin-md",
-  "version": "0.0.6",
-  "description": "a rollup plugin for markdown files",
-  "main": "dist/rollup-plugin-md.js",
-  "jsnext:main": "dist/rollup-plugin-md.mjs",
+  "name": "rollup-plugin-commonmark",
+  "version": "1.0.0",
+  "description": "Convert markdown files to HTML",
+  "private": true,
+  "main": "index.js",
+  "module": "main.js",
   "scripts": {
-    "test": "mocha test/*.js --compilers js:buble/register",
-    "pretest": "npm run build",
-    "build": "rollup -c",
-    "prebuild": "rm -rf dist/*"
+    "build": "rollup -c"
   },
   "keywords": [
-    "rollup",
+    "rollup-plugin",
     "plugin",
-    "md",
-    "markdown"
+    "markdown",
+    "commonmark",
+    "html"
   ],
-  "author": "yangxiaofu",
+  "author": "awmottaz",
   "license": "ISC",
   "dependencies": {
-    "marked": "^0.3.6",
-    "rollup": "^0.34.7",
-    "rollup-plugin-buble": "^0.12.1",
-    "rollup-pluginutils": "^1.5.1"
+    "commonmark": "^0.28.1",
+    "rollup": "^1.1.2",
+    "rollup-pluginutils": "^2.3.3"
   },
   "devDependencies": {
-    "assert": "^1.4.1",
-    "eslint": "^3.2.2",
-    "mocha": "^3.0.2",
-    "rollup-plugin-node-resolve": "^2.0.0",
-    "source-map-support": "^0.4.2"
+    "eslint": "^5.13.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^4.0.0"
   }
 }
