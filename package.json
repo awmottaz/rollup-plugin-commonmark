@@ -2,7 +2,6 @@
   "name": "rollup-plugin-commonmark",
   "version": "1.0.0",
   "description": "Convert markdown files to HTML",
-  "private": true,
   "main": "index.js",
   "module": "main.js",
   "scripts": {
